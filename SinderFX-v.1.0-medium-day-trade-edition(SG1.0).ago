@@ -1,5 +1,5 @@
 //+------------------------------------------------------------------+
-//|              (SMartgrid inspiration)             Sindertrade     |
+//|              IntelligentFX(SG)             Sindertrade     |
 //|                                         	                     |
 //|                                                                  |
 //+------------------------------------------------------------------+
@@ -12,7 +12,7 @@ using cAlgo.API;
 namespace cAlgo
 {
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
-    public class SmartGrid : Robot
+    public class Sindertrade : Robot
     {
         [Parameter("Buy", DefaultValue = true)]
         public bool Buy { get; set; }
@@ -23,7 +23,7 @@ namespace cAlgo
         [Parameter("Pip Step", DefaultValue = 10, MinValue = 1)]
         public int PipStep { get; set; }
 
-        [Parameter("First Volume", DefaultValue = 1000, MinValue = 1000, Step = 1000)]
+        [Parameter("First Volume", DefaultValue = 2000, MinValue = 1000, Step = 1000)]
         public int FirstVolume { get; set; }
 
         [Parameter("Volume Exponent", DefaultValue = 1.0, MinValue = 0.1, MaxValue = 5.0)]
@@ -129,7 +129,7 @@ namespace cAlgo
             int cd_8 = 0;
             if (iVol > 0)
             {
-                TradeResult result = ExecuteMarketOrder(TrdTp, Symbol, iVol, Label, 0, 0, 0, "smart_grid");
+                TradeResult result = ExecuteMarketOrder(TrdTp, Symbol, iVol, Label, 0, 0, 0, "I_FX__ST");
 
                 if (result.IsSuccessful)
                 {
@@ -221,7 +221,7 @@ namespace cAlgo
             if (sp_d > MaxSpread)
                 gc_78 = "MAX SPREAD EXCEED";
             else
-                gc_78 = "Smart Grid" + nb_6 + wn_7 + sp_4 + wn_8 + ppb + lpb;
+                gc_78 = "I_FX__ST" + nb_6 + wn_7 + sp_4 + wn_8 + ppb + lpb;
             return (gc_78);
         }
         private int cnt_16()
